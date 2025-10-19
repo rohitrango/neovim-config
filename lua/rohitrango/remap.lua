@@ -1,4 +1,4 @@
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- took this from primagen
@@ -14,15 +14,15 @@ vim.keymap.set('c', "%%", function()
 end, {expr = true, desc = "Expand to current file path"})
 
 -- will experiment with some of it
-vim.g.have_nerd_font = true  
+vim.g.have_nerd_font = true
 
 -- who doesn't need linenumbers?
-vim.o.number = true 
+vim.o.number = true
 vim.o.ruler = true
 vim.o.showmode = false
 
 -- I use this for <num>j type commands regularly
-vim.o.relativenumber = true 
+vim.o.relativenumber = true
 
 vim.o.mouse = 'a'
 
