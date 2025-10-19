@@ -1,6 +1,18 @@
 vim.g.mapleader = " " 
 vim.g.maplocalleader = " "
 
+-- took this from primagen
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- to debug LSP diagnostics later, im not using <leader>q for anything else anyway
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('c', "%%", function()
+	return vim.fn.expand("%:h") .. "/"
+end, {expr = true, desc = "Expand to current file path"})
+
 -- will experiment with some of it
 vim.g.have_nerd_font = true  
 
@@ -14,8 +26,6 @@ vim.o.relativenumber = true
 
 vim.o.mouse = 'a'
 
--- took this from primagen
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- need this quite a lot!
 vim.schedule(function()
@@ -58,20 +68,4 @@ vim.o.cursorline = true
 -- better than throwing an error
 vim.o.confirm = true
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- to debug LSP diagnostics later, im not using <leader>q for anything else anyway
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- important to get feedback on what was just yanked
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
 
