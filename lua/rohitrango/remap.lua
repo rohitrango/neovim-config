@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
+vim.opt.guicursor = ""
+vim.o.termguicolors = true      -- enable true color
+vim.o.background = "dark"
 
 -- took this from primagen
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -14,7 +17,7 @@ vim.keymap.set('c', "%%", function()
 end, {expr = true, desc = "Expand to current file path"})
 
 -- will experiment with some of it
-vim.g.have_nerd_font = true
+-- vim.g.have_nerd_font = true
 
 -- who doesn't need linenumbers?
 vim.o.number = true
@@ -26,11 +29,10 @@ vim.o.relativenumber = true
 
 vim.o.mouse = 'a'
 
-
--- need this quite a lot!
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+-- use leader Y to yank into system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+y")
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -41,6 +43,7 @@ vim.o.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.smartindent = true
 
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
@@ -68,4 +71,19 @@ vim.o.cursorline = true
 -- better than throwing an error
 vim.o.confirm = true
 
+vim.opt.tabstop = 4       -- number of spaces a <Tab> counts for
+vim.opt.shiftwidth = 4    -- number of spaces used for autoindent
+vim.opt.expandtab = true  -- convert tabs to spaces
+
+-- convenience mappings (keep cursor in the middle when scrolling)
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
+
+-- moving code up/down in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "J", "mzJ`z")
 
