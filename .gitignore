@@ -1,0 +1,14 @@
+# Packer compiled plugin loader
+plugin/packer_compiled.lua
+
+# Swap files and backups
+*.swp
+*.swo
+*.swn
+*~
+
+# Neovim session files
+Session.vim
+
+# Lazy.nvim lockfile (if you switch to lazy.nvim later)
+lazy-lock.json
