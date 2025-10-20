@@ -34,6 +34,26 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+y")
 
+-- use `st` to open a terminal at that location (rarer)
+vim.keymap.set("n", "<leader>sT", function()
+    local file_dir = vim.fn.expand("%:p:h")
+    local height = math.floor(vim.o.lines * 0.2)
+    vim.cmd.vnew()
+    vim.cmd("lcd " .. file_dir)
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, height)
+end)
+
+-- use `st` to open a terminal normally at root
+vim.keymap.set("n", "<leader>st", function()
+    local height = math.floor(vim.o.lines * 0.2)
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, height)
+end)
+
 -- Enable break indent
 vim.o.breakindent = true
 
