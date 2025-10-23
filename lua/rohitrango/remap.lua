@@ -107,3 +107,27 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- vimtex options
+vim.cmd("filetype plugin indent on")
+
+-- Or with a generic interface:
+-- vim.g.vimtex_view_general_viewer = 'okular'
+-- vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
+vim.g.vimtex_syntax_enabled = 0
+
+-- VimTeX compiler configuration
+-- Using latexmk with pdflatex engine (specified via -pdf option)
+vim.g.vimtex_compiler_method = 'latexmk'
+vim.g.vimtex_compiler_latexmk = {
+  build_dir = '',
+  callback = 1,
+  continuous = 1,
+  executable = 'latexmk',
+  options = {
+    '-pdf',  -- Use pdflatex engine
+    '-verbose',
+    '-file-line-error',
+    '-synctex=1',
+    '-interaction=nonstopmode',
+  },
+}
