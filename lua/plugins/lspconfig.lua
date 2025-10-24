@@ -11,9 +11,14 @@ return {
         vim.lsp.config("clangd", {
             capabilities = capabilities
         })
+        vim.lsp.config("texlab", {
+            capabilities = capabilities
+        })
+
 
         vim.lsp.enable("pyright")
         vim.lsp.enable('clangd')
+        vim.lsp.enable('texlab')
     end
     },
 }
