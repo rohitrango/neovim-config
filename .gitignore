@@ -9,6 +9,7 @@ plugin/packer_compiled.lua
 
 # Neovim session files
 Session.vim
+nvim.log
 
 # Lazy.nvim lockfile (if you switch to lazy.nvim later)
 lazy-lock.json
